@@ -80,8 +80,15 @@ input.on('close', () => {
       }
 
       // 2.2 Check if Column
-      const isEntireColumnMarked = BOARD_COLLECTION[boardKey]['marked'].every((boardRow) => boardRow[0]);
-      if (isEntireColumnMarked) {
+      const columnsStatus = BOARD_COLLECTION[boardKey]['marked'][0].map((_, boardColIdx) => {
+        return BOARD_COLLECTION[boardKey]['marked'].map((_, boardRowIdx) => {
+          return BOARD_COLLECTION[boardKey]['marked'][boardRowIdx][boardColIdx];
+        });
+      });
+
+      const isAnyColumnMarked = columnsStatus.some((column) => column.every((e) => e));
+
+      if (isAnyColumnMarked) {
         winnerBoardKey = boardKey;
         break;
       }
