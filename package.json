@@ -4,6 +4,7 @@
   "repository": "git@github.com:javimbk/aoc-2021.git",
   "author": "javimbk <javier@smallpdf.com>",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@types/node": "^16.11.11",
     "esm": "^3.2.25"
